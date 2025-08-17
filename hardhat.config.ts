@@ -1,5 +1,5 @@
 import type { HardhatUserConfig } from "hardhat/config";
-
+import "@nomicfoundation/hardhat-ethers"; // 👈 add this
 import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
 import { configVariable } from "hardhat/config";
 
@@ -30,11 +30,11 @@ const config: HardhatUserConfig = {
       type: "edr-simulated",
       chainType: "op",
     },
-    sepolia: {
+    baseSepolia: {
       type: "http",
-      chainType: "l1",
-      url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+      url: "https://base-sepolia.drpc.org",
+      accounts: [],
+      chainId: 84532,
     },
   },
 };
